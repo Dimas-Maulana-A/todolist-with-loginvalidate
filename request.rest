@@ -1,14 +1,14 @@
 GET http://localhost:8080/api/users
-
+# Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbHMiOiJ1c2VyMUBleGFtcGxlLmNvbSIsIm5hbWVzIjoidXNlcjEiLCJpYXQiOjE2Nzc3NDg0OTh9.WBQ9oR-3aJ_p6CgEUBCcvnv7luTtjmGkMY_emCpD9ek`
 
 ###
 POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-    "name": "user1",
-    "email": "user1@example.com",
-    "password": "user1"
+    "name": "user2",
+    "email": "user2@example.com",
+    "password": "user2"
 }
 
 ###
@@ -19,3 +19,38 @@ Content-Type: application/json
     "email": "user1@example.com",
     "password": "user1"
 }
+
+###
+GET http://localhost:8080/api/todo
+
+###
+GET http://localhost:8080/api/todo/3
+
+###
+GET http://localhost:8080/api/todo/user/1
+
+###
+POST http://localhost:8080/api/todo
+Content-Type: application/json
+
+{
+    "project": "project 1",
+    "description": "this is project 1",
+    "user": 2
+}
+
+###
+PUT http://localhost:8080/api/todo/3
+Content-Type: application/json
+
+{
+    "project": "project 10",
+    "description": "this is project 10"
+}
+
+
+###
+PATCH http://localhost:8080/api/todo/3
+
+###
+DELETE http://localhost:8080/api/todo/2

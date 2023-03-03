@@ -2,7 +2,7 @@
   "development": {
     "username": "pluton",
     "password": "pluton",
-    "database": "validate_login",
+    "database": "todolist-validate",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
