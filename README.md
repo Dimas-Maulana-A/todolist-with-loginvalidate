@@ -1,4 +1,4 @@
-# todolist with loginvalidate
+# Todolist with LoginValidate
 
 ### Get Started
 
@@ -6,7 +6,7 @@
 git clone https://github.com/Dimas-Maulana-A/todolist-with-loginvalidate/
 ```
 
-### Started
+### Setup Project
 
 ```
 npm install
@@ -77,6 +77,3 @@ PATCH /api/todo/:id
 ```
 DELETE /api/todo/:id
 ```
-
-
-
