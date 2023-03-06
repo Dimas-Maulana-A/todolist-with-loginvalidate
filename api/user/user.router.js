@@ -4,7 +4,7 @@ const {controllerGetUser, controllerAddUser, controllerLogin} = require('./user.
 const Auth = require('./../../middleware/auth')
 
 router.get('/', Auth, controllerGetUser)
-router.post('/', Auth, controllerAddUser)
+router.post('/', controllerAddUser)
 router.post('/login', controllerLogin)
 
 module.exports = router

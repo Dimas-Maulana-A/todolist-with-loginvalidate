@@ -45,32 +45,35 @@ module.exports ={
         })
     },
     controllerLogin: async(req, res)=> {
-        const {email, password} = req.body
-        await users.findOne({
-            where: {
-                email: email
-            },
-            attributes: {
-                exclude: ["createdAt", "updatedAt"]
-            }
-        })
-        .then(async result=> {
-            const match = await bcrypt.compare(password, result.password)
-            if(!match) res.json({message: "wrong password"})
-            
-            const emails = result.email
-            const names = result.name
+        try {
+            const user = await users.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+            const match = await bcrypt.compare(req.body.password, user.password)
+            if(!match) return res.status(400).json({message: "Wrong Password"})
 
+            const emails = user.email
+            const names = user.name
+            
             const signs = jwt.sign({emails, names}, process.env.TOKEN)
+            const datas = await users.findOne({
+                where: {
+                    id: user.id
+                },
+                attributes: {
+                    exclude: ['password', 'createdAt', 'updatedAt']
+                }
+            }) 
             res.json({
                 token: signs,
-                datas: result
+                data: datas
             })
-        })
-        .catch(err=> {
-            res.json({
-                message: "email not found"
+        } catch (error) {
+            res.status(404).json({
+                message: "Email not found"
             })
-        })
+        }
     }
 }
