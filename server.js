@@ -2,12 +2,14 @@ const express = require('express')
 const app = express()
 
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const dotenv =require('dotenv')
 dotenv.config()
 
 app.use(express())
 app.use(bodyParser.json())
+app.use(cookieParser())
 app.use(cors())
 
 const Users = require('./api/user/user.router')

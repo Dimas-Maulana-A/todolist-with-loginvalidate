@@ -16,9 +16,12 @@ POST http://localhost:8080/api/users/login
 Content-Type: application/json
 
 {
-    "email": "user1@example.com",
-    "password": "user1"
+    "email": "user2@example.com",
+    "password": "user2"
 }
+
+###
+GET http://localhost:8080/api/users/token
 
 ###
 GET http://localhost:8080/api/todo
